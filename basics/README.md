@@ -99,111 +99,147 @@ Understand the ls long format and how to display it
  * All your scripts must be executable. To make your file executable, use the `chmod` command: `chmod u+x file`. Later, we’ll learn more about how to utilize this command.
 
 # **🚧Tasks**
-## **0. Create and setup your Git and GitHub account**
-> **Repo:**
-> * GitHub repository: `holbertonschool-zero_day`
-> * File: `README.md`
-
-
-## **1. Repo-session**
-Create a new directory called `git` in your repo.
-Make sure you include a not empty `README.md` in your directory:
-* at the root of your repository
-* AND in the directory `git`
-And important part: **Make sure your commit and push your code to Github - otherwise the Checker will always fail.**
-> **Repo:**
-> * GitHub repository: `holbertonschool-zero_day`
-
-## **2. Coding fury road**
-For the moment we have an empty project directory containing only a `README.md`. It’s time to code!
-
-* Create these directories at the root of your project: `bash`, `c`, `js`
-* Create these empty files:
-    * `c/c_is_fun.c`
-    * `js/main.js`
-    * `js/index.js`
-* Create a file `bash/best` with these two lines inside: `#!/bin/bash` and `echo "Best"`
-* Create a file `bash/school` with these two lines inside: `#!/bin/bash` and `echo "School"`
-* Add all these new files to git
-* Commit your changes (message: “Starting to code today, so cool”) and push to the remote server
-> **Repo:**
-> * GitHub repository: `holbertonschool-zero_day`
-> * Directory: git
-> * File: `bash/best, bash/school, c/c_is_fun.c, js/main.js, js/index.js`
-
-## **3. Collaboration is the base of a company**
-A branch is like a copy of your project. It’s used mainly for:
-
-* adding a feature in development
-* collaborating on the same project with other developers
-* not breaking your entire repository
-* not upsetting your co-workers
-
-The purpose of a branch is to isolate your work from the main code base of your project and/or from your co-workers’ work.
-
-For this project, create a branch `update_script` and in this branch:
-
-* Create an empty file named `bash/98`
-* Update `bash/best` by replacing `echo "Best"` with `echo "Best School"`
-* Update `bash/school` by replacing `echo "School"` with `echo "The school is open!"`
-* Add and commit these changes (message: “My personal work”)
-* Push this new branch [Tips](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository)
-
-Perfect! You did an amazing update in your project and it’s isolated correctly from the main branch.
-
-Ho wait, your manager needs a quick fix in your project and it needs to be deployed now:
-
-* Change branch to `main`
-* Update the file `bash/best` by replacing `echo "Best"` with `echo "This School is so cool!"`
-* Delete the directory `js`
-* Commit your changes (message: “Hot fix”) and push to the origin
-
-Ouf, hot fix is done!
-> **Repo:**
-> * GitHub repository: `holbertonschool-zero_day`
-> * Directory: git
-> * File: `bash/best, bash/school, bash/98`
-
-## **4. Collaboration: be up to date**
-Of course, you can also work on the same branch as your co-workers and it’s best if you keep up to date with their changes.
-
-For this task **– and only for this task –** please update your file `README.md` in the main branch from GitHub.com. It’s the **only time** you are allowed to update and commit from GitHub interface.
-
-After you have done that, in your terminal:
-
-* Get all changes of the main branch locally (i.e. your `README.md` file will be updated)
-* Create a new file `up_to_date` at the root of your directory and in it, write the git command line used
-* Add `up_to_date` to git, commit (message: “How to be up to date in git”), and push to the origin
-> **Repo:**
-> * GitHub repository: `holbertonschool-zero_day`
-> * Directory: git
-> * File: `README.md, up_to_date`
-
-## **5. HAAA what did you do???**
-Collaboration is cool, but not really when you update the same file at the same time…
-
-To illustrate that, please merge the branch `update_script` to `main`: “Cool, all my changes will be now part of the main branch, ready to be deployed!”
-
-**HHHHHHHAAAAAAAA**
-
+## **0. Where am I?**
+Write a script that prints the absolute path name of the current working directory.
+Example:
 ```
-CONFLICT (content): Merge conflict in bash/best
+$ ./0-current_working_directory
+/0x00-shell_basics
+$
 ```
-As you can see, you have conflicts between two branches on the same file.
-
-Your goal now is to resolve conflicts by using the version of the branch `update_script`, and push the result to the origin.
-
-At the end, you should have all your work from the branch `update_script` (new file and two updated files) and all latest `main` commits (new files, delete folder, etc.), without conflicts.
 > **Repo:**
-> * GitHub repository: `holbertonschool-zero_day`
-> * Directory: git
+> * GitHub repository: `holbertonschool-shell`
+> * Directory: basics
+> * File: [0-current_working_directory]()
 
-## **6. Never push too much**
-Create a `.gitignore` file and define a rule to never push ~ files (generated by Emacs). [Tips](https://git-scm.com/docs/gitignore)
+
+## **1. What’s in there?**
+Display the contents list of your current directory.
+
+Example:
+```
+$ ./1-listit
+Applications    Documents   Dropbox Movies Pictures
+Desktop Downloads   Library Music Public
+$
+```
 > **Repo:**
-> * GitHub repository: `holbertonschool-zero_day`
-> * Directory: git
-> * File: `.gitignore`
+> * GitHub repository: `holbertonschool-shell`
+> * Directory: basics
+> * File: [1-listit]()
+
+## **2. There is no place like home**
+Write a script that changes the working directory to the user’s home directory.
+
+ * You are not allowed to use any shell variables
+```
+julien@ubuntu:/tmp$ pwd
+/tmp
+julien@ubuntu:/tmp$ echo $HOME
+/home/julien
+julien@ubuntu:/tmp$ source ./2-bring_me_home
+julien@ubuntu:~$ pwd
+/home/julien
+julien@ubuntu:~$ 
+```
+> **Repo:**
+> * GitHub repository: `holbertonschool-shell`
+> * Directory: basics
+> * File: [2-bring_me_home]()
+
+## **3. The long format**
+Display current directory contents in a long format
+
+Example:
+```
+$ ./3-listfiles
+total 32
+-rwxr-xr-x@ 1 sylvain staff 18 Jan 25 00:19 0-current_working_directory
+-rwxr-xr-x@ 1 sylvain staff 19 Jan 25 00:23 1-listit
+-rwxr-xr-x@ 1 sylvain staff 18 Jan 25 00:29 2-bring_me_home
+-rwxr-xr-x@ 1 sylvain staff 18 Jan 25 00:39 3-listfiles
+$
+```
+> **Repo:**
+> * GitHub repository: `holbertonschool-shell`
+> * Directory: basics
+> * File: [3-listfiles]()
+
+## 4. Hidden files
+Display current directory contents, including hidden files (starting with `.`). Use the long format.
+
+Example:
+```
+$ ./4-listmorefiles
+total 32
+drwxr-xr-x@ 6 sylvain staff 204 Jan 25 00:29 .
+drwxr-xr-x@ 43 sylvain staff 1462 Jan 25 00:19 ..
+-rwxr-xr-x@ 1 sylvain staff 18 Jan 25 00:19 0-current_working_directory
+-rwxr-xr-x@ 1 sylvain staff 19 Jan 25 00:23 1-listit
+-rwxr-xr-x@ 1 sylvain staff 18 Jan 25 00:29 2-bring_me_home
+-rwxr-xr-x@ 1 sylvain staff 18 Jan 25 00:39 3-listfiles
+-rwxr-xr-x@ 1 sylvain staff 18 Jan 25 00:41 4-listmorefiles
+$
+```
+> **Repo:**
+> * GitHub repository: `holbertonschool-shell`
+> * Directory: basics
+> * File: [4-listmorefiles]()
+
+## 5. I love numbers
+Display current directory contents.
+
+ * Long format
+ * with user and group IDs displayed numerically
+ * And hidden files (starting with .)
+Example:
+```
+$ ./5-listfilesdigitonly
+total 32
+drwxr-xr-x@ 6 501 20 204 Jan 25 00:29 .
+drwxr-xr-x@ 43 501 20 1462 Jan 25 00:19 ..
+-rwxr-xr-x@ 1 501 20 18 Jan 25 00:19 0-current_working_directory
+-rwxr-xr-x@ 1 501 20 18 Jan 25 00:23 1-listfiles
+-rwxr-xr-x@ 1 501 20 19 Jan 25 00:29 2-bring_me_home
+-rwxr-xr-x@ 1 501 20 20 Jan 25 00:39 3-listfiles
+-rwxr-xr-x@ 1 501 20 18 Jan 25 00:41 4-listmorefiles
+-rwxr-xr-x@ 1 501 20 18 Jan 25 00:43 5-listfilesdigitonly
+$
+```
+> **Repo:**
+> * GitHub repository: `holbertonschool-shell`
+> * Directory: basics
+> * File: [5-listfilesdigitonly]()
+
+## 6. Welcome
+Create a script that creates a directory named `my_first_directory` in the `/tmp/` directory.
+
+Example:
+```
+$ ./6-firstdirectory
+$ file /tmp/my_first_directory/
+/tmp/my_first_directory/: directory
+$
+```
+> **Repo:**
+> * GitHub repository: `holbertonschool-shell`
+> * Directory: basics
+> * File: [6-firstdirectory]()
+
+## 7. Betty in my first directory
+Move the file `betty` from `/tmp/` to `/tmp/my_first_directory`.
+
+Example:
+```
+$ ./7-movethatfile
+$ ls /tmp/my_first_directory/
+betty
+$
+```
+> **Repo:**
+> * GitHub repository: `holbertonschool-shell`
+> * Directory: basics
+> * File: [5-listfilesdigitonly]()
 
 
 # **🧑‍💻Author**
